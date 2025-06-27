@@ -46,6 +46,10 @@ jobs:
         with:
           node-version: ${{ env.NODE_VERSION }}
           cache: 'npm'
+          cache-dependency-path: |
+            package-lock.json
+            apps/spiral-api/package-lock.json
+            apps/spiral-frontend/package-lock.json
 
       - name: "🔮 Install Dependencies with Quantum Acceleration"
         run: |
@@ -132,6 +136,11 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: ${{ env.NODE_VERSION }}
+          cache: 'npm'
+          cache-dependency-path: |
+            package-lock.json
+            apps/spiral-api/package-lock.json
+            apps/spiral-frontend/package-lock.json
 
       - name: "🔧 Component Build: ${{ matrix.component }}"
         run: |
