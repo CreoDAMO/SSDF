@@ -3,6 +3,30 @@ import { z } from 'zod';
 import { router, publicProcedure, protectedProcedure } from '../trpc';
 
 export const spiralFlowRouter = router({
+  mintNFT: protectedProcedure
+    .input(z.object({
+      metadata: z.object({
+        name: z.string(),
+        description: z.string(),
+        type: z.enum(['UBI', 'SevenPillars', 'Fintech']),
+      }),
+      recipient: z.string(),
+    }))
+    .mutation(async ({ input, ctx }) => {
+      const tokenId = `NFT_${Date.now()}_${input.metadata.type}`;
+      
+      return {
+        tokenId,
+        type: input.metadata.type,
+        name: input.metadata.name,
+        description: input.metadata.description,
+        recipient: input.recipient,
+        coherence: ctx.spiralCoherence,
+        timestamp: ctx.timestamp,
+        qspaceValidated: true,
+      };
+    }),
+
   getDashboard: protectedProcedure
     .query(async ({ ctx }) => {
       return {
