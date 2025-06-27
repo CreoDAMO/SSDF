@@ -6,6 +6,7 @@ import { ubiRouter } from './routes/ubi';
 import { qspaceRouter } from './routes/qspace';
 import { healthRouter } from './routes/health';
 import { spiralCoreRouter } from './routes/spiralCore';
+import economicDataRouter from './routes/economicData';
 
 export const appRouter = router({
   health: healthRouter,
@@ -15,6 +16,7 @@ export const appRouter = router({
   ubi: ubiRouter,
   qspace: qspaceRouter,
   spiralCore: spiralCoreRouter,
+  economicData: economicDataRouter,
 });
 
 export type AppRouter = typeof appRouter;
