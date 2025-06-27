@@ -7,6 +7,8 @@ import { SpiralDashboard } from './components/SpiralDashboard';
 import BusinessVerification from './components/BusinessVerification';
 import { PrivateGate } from './components/PrivateGate';
 import { SovereignInfrastructure } from './components/SovereignInfrastructure';
+import ImpossibleAchieved from './components/ImpossibleAchieved';
+import APITesting from './components/APITesting';
 
 interface User {
   id: string;
@@ -74,8 +76,11 @@ export default function Home() {
           </>
         )}
         <BusinessVerification />
-      <ImpossibleAchieved />
-    </main>
+        <ImpossibleAchieved />
+        <div className="py-16">
+          <APITesting />
+        </div>
+      </main>
     </TrpcProvider>
   );
 }

@@ -5,14 +5,16 @@ import { trustUnitsRouter } from './routes/trustUnits';
 import { ubiRouter } from './routes/ubi';
 import { spiralFlowRouter } from './routes/spiralFlow';
 import { systemActivationRouter } from './routes/systemActivation';
+import { apiValidationRouter } from './routes/apiValidation';
 
 export const appRouter = router({
   health: healthRouter,
-  auth: authRouter,
   trustUnits: trustUnitsRouter,
   ubi: ubiRouter,
+  auth: authRouter,
   spiralFlow: spiralFlowRouter,
   systemActivation: systemActivationRouter,
+  apiValidation: apiValidationRouter,
 });
 
 export type AppRouter = typeof appRouter;
