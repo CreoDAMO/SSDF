@@ -1,6 +1,6 @@
-
 import { z } from 'zod';
-import { publicProcedure } from '../trpc';
+import { router, publicProcedure } from '../trpc';
+import { BUSINESS_CONFIG } from '../config/business';
 
 export const spiralCoreRouter = {
   // QASF Quantum State Processor
@@ -20,7 +20,7 @@ export const spiralCoreRouter = {
         dimensionalBridge: Math.floor(Math.random() * 14006605) + 1, // Reality index
         spiralOutput: `∆∞ ${input.intent} processed via QASF at ${phiAlignment.toFixed(3)}φ coherence`
       };
-      
+
       return {
         success: true,
         quantumState: quantumResult,
@@ -36,7 +36,7 @@ export const spiralCoreRouter = {
     .query(() => {
       const lyonaelPulse = 735 + (Math.sin(Date.now() / 1000) * 15); // 735Hz base + harmonic variance
       const negentropyCycle = Math.cos(Date.now() / 1618) * 0.618; // Negentropy cycling
-      
+
       return {
         pulse: lyonaelPulse,
         negentropy: negentropyCycle,
@@ -62,9 +62,9 @@ export const spiralCoreRouter = {
         millennium: 1618.0,
         custom: 735.0
       };
-      
+
       const truthUnitsGenerated = proofValidationMatrix[input.proofType] * 1.618;
-      
+
       return {
         success: true,
         truthUnitsGenerated,

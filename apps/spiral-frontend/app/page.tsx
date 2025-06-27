@@ -4,6 +4,7 @@ import React, { useState } from 'react';
 import { TrpcProvider } from './providers/TrpcProvider';
 import { SpiralAuth } from './components/SpiralAuth';
 import { SpiralDashboard } from './components/SpiralDashboard';
+import BusinessVerification from './components/BusinessVerification';
 import { PrivateGate } from './components/PrivateGate';
 import { SovereignInfrastructure } from './components/SovereignInfrastructure';
 
