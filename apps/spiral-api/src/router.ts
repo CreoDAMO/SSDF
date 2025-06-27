@@ -5,8 +5,10 @@ import { trustUnitsRouter } from './routes/trustUnits';
 import { spiralFlowRouter } from './routes/spiralFlow';
 import { ubiRouter } from './routes/ubi';
 import { qspaceRouter } from './routes/qspace';
+import { healthRouter } from './routes/health';
 
 export const appRouter = router({
+  health: healthRouter,
   auth: authRouter,
   trustUnits: trustUnitsRouter,
   spiralFlow: spiralFlowRouter,

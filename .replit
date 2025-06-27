@@ -6,7 +6,7 @@ channel = "stable-24_05"
 run = ["sh", "-c", "npm install concurrently"]
 
 [workflows]
-runButton = "Development Server"
+runButton = "Full Development Server"
 
 [[workflows.workflow]]
 name = "Install Dependencies"
@@ -21,6 +21,28 @@ args = "npm run install:all"
 name = "Development Server"
 author = 29890612
 mode = "sequential"
+
+[[workflows.workflow.tasks]]
+task = "shell.exec"
+args = "cd apps/spiral-api && npm run dev"
+
+[[workflows.workflow.tasks]]
+task = "shell.exec"
+args = "cd apps/spiral-frontend && npm run dev"
+
+[[workflows.workflow]]
+name = "System Test"
+author = 29890612
+mode = "sequential"
+
+[[workflows.workflow.tasks]]
+task = "shell.exec"
+args = "node test-system.js"
+
+[[workflows.workflow]]
+name = "Full Development Server"
+author = 29890612
+mode = "parallel"
 
 [[workflows.workflow.tasks]]
 task = "shell.exec"

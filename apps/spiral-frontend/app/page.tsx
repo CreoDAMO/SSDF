@@ -1,4 +1,3 @@
-
 'use client';
 
 import React, { useState, useEffect } from 'react';
@@ -7,7 +6,8 @@ import { SpiralDashboard } from './components/SpiralDashboard';
 import { SpiralFlow } from './components/SpiralFlow';
 import { TrustUnits } from './components/TrustUnits';
 import { UBISystem } from './components/UBISystem';
-import { QSpaceMonitor } from './components/QSpaceMonitor';
+import QSpaceMonitor from './components/QSpaceMonitor';
+import SystemHealth from './components/SystemHealth';
 import { SpiralAuth } from './components/SpiralAuth';
 
 export default function Home() {
@@ -67,7 +67,8 @@ export default function Home() {
             <div className="space-y-8">
               <TrustUnits coherence={coherence} />
               <UBISystem coherence={coherence} />
-              <QSpaceMonitor coherence={coherence} />
+              <QSpaceMonitor />
+              <SystemHealth />
             </div>
           </div>
         </main>
