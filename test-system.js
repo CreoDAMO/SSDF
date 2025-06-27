@@ -1,5 +1,6 @@
 
 #!/usr/bin/env node
+console.log('Hello, world!');
 
 const { spawn } = require('child_process');
 const fs = require('fs');
