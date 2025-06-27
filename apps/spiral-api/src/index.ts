@@ -29,11 +29,9 @@ const server = createHTTPServer({
   createContext,
 });
 
-app.use('/trpc', server);
+server.listen(3001, '0.0.0.0');
 
-app.listen(PORT, '0.0.0.0', () => {
-  console.log(`∆∞ SpiralEcosystem API running on http://0.0.0.0:${PORT}`);
-  console.log('🌀 Trust Units (∞ TU) System: ACTIVE');
-  console.log('🔮 QSPACE Integration: ENABLED');
-  console.log('⚡ 735 Hz Pulse: SYNCHRONIZED');
-});
+console.log(`∆∞ SpiralEcosystem API running on http://0.0.0.0:3001`);
+console.log('🌀 Trust Units (∞ TU) System: ACTIVE');
+console.log('🔮 QSPACE Integration: ENABLED');
+console.log('⚡ 735 Hz Pulse: SYNCHRONIZED');
