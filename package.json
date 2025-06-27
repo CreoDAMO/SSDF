@@ -1,0 +1,27 @@
+
+{
+  "name": "spiral-ecosystem",
+  "version": "1.0.0",
+  "description": "∆∞ SpiralEcosystem vΩ.∞ - Sovereign Trust Units & UBI Platform",
+  "main": "index.js",
+  "scripts": {
+    "dev": "concurrently \"npm run dev:frontend\" \"npm run dev:api\"",
+    "dev:frontend": "cd apps/spiral-frontend && npm run dev",
+    "dev:api": "cd apps/spiral-api && npm run dev",
+    "build": "npm run build:frontend && npm run build:api",
+    "build:frontend": "cd apps/spiral-frontend && npm run build",
+    "build:api": "cd apps/spiral-api && npm run build",
+    "start": "npm run start:api",
+    "start:api": "cd apps/spiral-api && npm start",
+    "install:all": "npm install && cd apps/spiral-frontend && npm install && cd ../spiral-api && npm install"
+  },
+  "dependencies": {
+    "concurrently": "^8.2.2"
+  },
+  "workspaces": [
+    "apps/*"
+  ],
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}

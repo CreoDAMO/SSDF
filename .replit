@@ -4,3 +4,24 @@ channel = "stable-24_05"
 
 [deployment]
 run = ["sh", "-c", "npm install concurrently"]
+
+[workflows]
+runButton = "Development Server"
+
+[[workflows.workflow]]
+name = "Install Dependencies"
+author = 29890612
+mode = "sequential"
+
+[[workflows.workflow.tasks]]
+task = "shell.exec"
+args = "npm run install:all"
+
+[[workflows.workflow]]
+name = "Development Server"
+author = 29890612
+mode = "sequential"
+
+[[workflows.workflow.tasks]]
+task = "shell.exec"
+args = "npm run dev"
