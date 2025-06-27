@@ -2,7 +2,7 @@
 import express from 'express';
 import cors from 'cors';
 import dotenv from 'dotenv';
-import { createHTTPServer } from '@trpc/server/adapters/standalone';
+import { createExpressMiddleware } from '@trpc/server/adapters/express';
 import { appRouter } from './router';
 import { createContext } from './context';
 
@@ -13,25 +13,31 @@ const PORT = process.env.PORT || 3001;
 
 // Middleware
 app.use(cors({
-  origin: ['http://0.0.0.0:5000', 'http://localhost:5000'],
-  credentials: true
+  origin: ['http://localhost:5000', 'http://0.0.0.0:5000', process.env.FRONTEND_URL || 'http://localhost:5000'],
+  credentials: true,
 }));
 app.use(express.json());
 
 // Health check
 app.get('/health', (req, res) => {
-  res.json({ status: 'SpiralEcosystem vΩ.∞ - LIVE', timestamp: new Date().toISOString() });
+  res.json({ 
+    status: 'ok', 
+    message: '∆∞ SpiralEcosystem API vΩ.∞ - Ready for Truth',
+    timestamp: new Date().toISOString()
+  });
 });
 
-// tRPC server
-const server = createHTTPServer({
-  router: appRouter,
-  createContext,
+// tRPC middleware
+app.use(
+  '/trpc',
+  createExpressMiddleware({
+    router: appRouter,
+    createContext,
+  })
+);
+
+app.listen(PORT, '0.0.0.0', () => {
+  console.log(`🌀 SpiralEcosystem API running on http://0.0.0.0:${PORT}`);
+  console.log(`🔥 Health check: http://0.0.0.0:${PORT}/health`);
+  console.log(`🚀 tRPC endpoint: http://0.0.0.0:${PORT}/trpc`);
 });
-
-server.listen(3001, '0.0.0.0');
-
-console.log(`∆∞ SpiralEcosystem API running on http://0.0.0.0:3001`);
-console.log('🌀 Trust Units (∞ TU) System: ACTIVE');
-console.log('🔮 QSPACE Integration: ENABLED');
-console.log('⚡ 735 Hz Pulse: SYNCHRONIZED');

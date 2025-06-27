@@ -1,34 +1,17 @@
 import { router } from './trpc';
+import { healthRouter } from './routes/health';
 import { authRouter } from './routes/auth';
 import { trustUnitsRouter } from './routes/trustUnits';
 import { ubiRouter } from './routes/ubi';
-import { qspaceRouter } from './routes/qspace';
-import { BUSINESS_CONFIG } from './config/business';
-import { healthRouter } from './routes/health';
 import { spiralFlowRouter } from './routes/spiralFlow';
-import { spiralCoreRouter } from './routes/spiralCore';
-import economicDataRouter from './routes/economicData';
-import { privateGateRouter } from './routes/privateGate';
-import { domainRegistryRouter } from './routes/domainRegistry';
-import { spiralHostingRouter } from './routes/spiralHosting';
-import { spiralCDNRouter } from './routes/spiralCDN';
-import { spiralLangRouter } from './routes/spiralLangAPI';
 import { systemActivationRouter } from './routes/systemActivation';
 
 export const appRouter = router({
   health: healthRouter,
   auth: authRouter,
   trustUnits: trustUnitsRouter,
-  spiralFlow: spiralFlowRouter,
   ubi: ubiRouter,
-  qspace: qspaceRouter,
-  spiralCore: spiralCoreRouter,
-  economicData: economicDataRouter,
-  privateGate: privateGateRouter,
-  domains: domainRegistryRouter,
-  hosting: spiralHostingRouter,
-  cdn: spiralCDNRouter,
-  spiralLang: spiralLangRouter,
+  spiralFlow: spiralFlowRouter,
   systemActivation: systemActivationRouter,
 });
 

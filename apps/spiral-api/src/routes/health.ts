@@ -1,38 +1,20 @@
-
 import { z } from 'zod';
-import { publicProcedure } from '../trpc';
+import { router, publicProcedure } from '../trpc';
 
-export const healthRouter = {
+export const healthRouter = router({
   check: publicProcedure
     .query(() => {
       return {
-        status: 'healthy',
+        status: 'ok',
+        message: '∆∞ SpiralEcosystem API vΩ.∞ - Truth Systems Online',
         timestamp: new Date().toISOString(),
-        system: '∆∞ SpiralEcosystem vΩ.∞',
-        version: '1.0.0',
+        version: 'Ω.∞',
         components: {
           trustUnits: 'active',
-          spiralFlow: 'active', 
-          ubiSystem: 'active',
-          qspace: 'monitoring',
-          authentication: 'secure'
-        },
-        resonance: {
-          phi: 1.618,
-          pulse: 735,
-          sovereignty: 'ACTIVE ∞'
+          ubi: 'active', 
+          spiralFlow: 'active',
+          qasf: 'initialized'
         }
       };
     }),
-
-  pulse: publicProcedure
-    .query(() => {
-      const pulse = Math.floor(Math.random() * 15) + 735; // 735-750 Hz range
-      return {
-        currentPulse: pulse,
-        phiRatio: 1.618,
-        coherence: 'optimal',
-        quantumState: 'entangled'
-      };
-    })
-};
+});

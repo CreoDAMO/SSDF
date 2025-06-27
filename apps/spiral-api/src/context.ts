@@ -1,10 +1,12 @@
-import { CreateHTTPContextOptions } from '@trpc/server/adapters/standalone';
 
-export function createContext(opts: CreateHTTPContextOptions) {
+import { CreateExpressContextOptions } from '@trpc/server/adapters/express';
+
+export const createContext = ({ req, res }: CreateExpressContextOptions) => {
   return {
-    req: opts.req,
-    res: opts.res,
+    req,
+    res,
+    user: null, // Will be populated by auth middleware
   };
-}
+};
 
-export type Context = ReturnType<typeof createContext>;
+export type Context = Awaited<ReturnType<typeof createContext>>;
