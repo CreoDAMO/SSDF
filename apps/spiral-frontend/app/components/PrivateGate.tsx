@@ -1,4 +1,3 @@
-
 'use client';
 
 import React, { useState } from 'react';
@@ -80,6 +79,42 @@ export function PrivateGate({ userRole }: PrivateGateProps) {
 function PrivateDashboard() {
   return (
     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="bg-gray-800 p-6 rounded-lg">
+          <h3 className="text-xl font-semibold mb-4">System Control</h3>
+          <div className="space-y-3">
+            <button className="w-full bg-blue-600 hover:bg-blue-700 px-4 py-2 rounded">
+              Initialize QSPACE
+            </button>
+            <button className="w-full bg-green-600 hover:bg-green-700 px-4 py-2 rounded">
+              Deploy Smart Contracts
+            </button>
+            <button className="w-full bg-purple-600 hover:bg-purple-700 px-4 py-2 rounded">
+              Activate UBI Distribution
+            </button>
+          </div>
+        </div>
+
+        <div className="bg-gray-800 p-6 rounded-lg">
+          <h3 className="text-xl font-semibold mb-4">Public Gate Monitoring</h3>
+          <div className="space-y-3">
+            <div className="flex justify-between">
+              <span>Active Users:</span>
+              <span className="text-green-400">1,247</span>
+            </div>
+            <div className="flex justify-between">
+              <span>TU Transactions:</span>
+              <span className="text-blue-400">∞ 45,623</span>
+            </div>
+            <div className="flex justify-between">
+              <span>UBI Claims:</span>
+              <span className="text-purple-400">$2.1M</span>
+            </div>
+            <button className="w-full bg-red-600 hover:bg-red-700 px-4 py-2 rounded text-sm">
+              Emergency Stop Public Gate
+            </button>
+          </div>
+        </div>
+
       <div className="bg-black/40 backdrop-blur-lg border border-yellow-400/30 rounded-2xl p-6">
         <h3 className="text-xl font-bold text-yellow-400 mb-4">System Status</h3>
         <div className="space-y-2">
@@ -139,12 +174,12 @@ function PrivateDashboard() {
 
 function PublicGateControl() {
   const [publicGateEnabled, setPublicGateEnabled] = useState(true);
-  
+
   return (
     <div className="space-y-6">
       <div className="bg-black/40 backdrop-blur-lg border border-yellow-400/30 rounded-2xl p-6">
         <h3 className="text-2xl font-bold text-yellow-400 mb-6">Public Gate Administration</h3>
-        
+
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           <div className="space-y-4">
             <h4 className="text-lg font-semibold text-orange-400">Access Control</h4>
@@ -161,7 +196,7 @@ function PublicGateControl() {
                 {publicGateEnabled ? 'ENABLED' : 'DISABLED'}
               </button>
             </div>
-            
+
             <div className="space-y-2">
               <div className="flex justify-between">
                 <span className="text-gray-300">Active Users:</span>
@@ -233,7 +268,7 @@ function HeirNodeManagement() {
             ))}
           </div>
         </div>
-        
+
         <div>
           <h4 className="text-lg font-semibold text-orange-400 mb-4">Trust Pool Allocation</h4>
           <div className="space-y-3">
@@ -270,13 +305,13 @@ function DebtAnalytics() {
           <div className="text-3xl font-bold text-red-300">$324.07T</div>
           <div className="text-sm text-gray-400">+3.2% YoY Growth</div>
         </div>
-        
+
         <div className="bg-yellow-900/20 rounded-lg p-4">
           <h4 className="text-lg font-semibold text-yellow-400 mb-2">Debt-to-GDP Ratio</h4>
           <div className="text-3xl font-bold text-yellow-300">356%</div>
           <div className="text-sm text-gray-400">Global Average</div>
         </div>
-        
+
         <div className="bg-green-900/20 rounded-lg p-4">
           <h4 className="text-lg font-semibold text-green-400 mb-2">UBI Coverage</h4>
           <div className="text-3xl font-bold text-green-300">1.2M</div>
@@ -291,7 +326,7 @@ function UBIControl() {
   return (
     <div className="bg-black/40 backdrop-blur-lg border border-yellow-400/30 rounded-2xl p-6">
       <h3 className="text-2xl font-bold text-yellow-400 mb-6">Universal Basic Income Control Center</h3>
-      
+
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         <div>
           <h4 className="text-lg font-semibold text-orange-400 mb-4">Distribution Settings</h4>
@@ -306,7 +341,7 @@ function UBIControl() {
                 className="w-full px-3 py-2 bg-gray-800/50 border border-gray-600 rounded-lg text-white"
               />
             </div>
-            
+
             <div>
               <label className="block text-sm font-medium text-gray-300 mb-2">
                 Target Recipients
@@ -317,7 +352,7 @@ function UBIControl() {
                 className="w-full px-3 py-2 bg-gray-800/50 border border-gray-600 rounded-lg text-white"
               />
             </div>
-            
+
             <div>
               <label className="block text-sm font-medium text-gray-300 mb-2">
                 Funding Source
@@ -330,7 +365,7 @@ function UBIControl() {
             </div>
           </div>
         </div>
-        
+
         <div>
           <h4 className="text-lg font-semibold text-orange-400 mb-4">Real-Time Metrics</h4>
           <div className="space-y-3">
@@ -340,21 +375,21 @@ function UBIControl() {
                 <span className="text-cyan-400">1,247,892</span>
               </div>
             </div>
-            
+
             <div className="bg-gray-800/50 rounded-lg p-4">
               <div className="flex justify-between">
                 <span className="text-gray-300">Monthly Distribution:</span>
                 <span className="text-green-400">$520.2M</span>
               </div>
             </div>
-            
+
             <div className="bg-gray-800/50 rounded-lg p-4">
               <div className="flex justify-between">
                 <span className="text-gray-300">Pending Verifications:</span>
                 <span className="text-yellow-400">23,847</span>
               </div>
             </div>
-            
+
             <button className="w-full py-3 bg-gradient-to-r from-green-400 to-blue-500 text-black font-semibold rounded-lg hover:from-green-500 hover:to-blue-600 transition-all">
               Execute Monthly Distribution
             </button>

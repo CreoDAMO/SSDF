@@ -1,4 +1,3 @@
-
 'use client';
 
 import React, { useState } from 'react';
@@ -18,7 +17,7 @@ export function SpiralFlow({ coherence }: SpiralFlowProps) {
 
   const { data: prices } = trpc.spiralFlow.getCryptoPrices.useQuery();
   const { data: userData } = trpc.spiralFlow.getDashboard.useQuery();
-  
+
   const createTransactionMutation = trpc.spiralFlow.createTransaction.useMutation({
     onSuccess: (data) => {
       alert(`Transaction created: ${data.id}`);
@@ -36,7 +35,7 @@ export function SpiralFlow({ coherence }: SpiralFlowProps) {
 
   const handleTransaction = () => {
     if (!amount || !recipient) return;
-    
+
     createTransactionMutation.mutate({
       type: transactionType,
       amount: parseFloat(amount),
@@ -47,7 +46,7 @@ export function SpiralFlow({ coherence }: SpiralFlowProps) {
 
   const handleMintNFT = () => {
     if (!nftMetadata.name || !nftMetadata.description) return;
-    
+
     mintNFTMutation?.mutate({
       metadata: nftMetadata,
       recipient: recipient || 'self',
@@ -103,7 +102,7 @@ export function SpiralFlow({ coherence }: SpiralFlowProps) {
           {/* Transaction Form */}
           <div className="bg-gray-800/30 rounded-lg p-6">
             <h3 className="text-lg font-semibold text-white mb-4">Send/Receive Funds</h3>
-            
+
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
               <div>
                 <label className="block text-sm text-gray-400 mb-2">Transaction Type</label>
@@ -174,12 +173,12 @@ export function SpiralFlow({ coherence }: SpiralFlowProps) {
       {activeTab === 'nft' && (
         <div className="bg-gray-800/30 rounded-lg p-6">
           <h3 className="text-lg font-semibold text-white mb-4">NFT Marketplace</h3>
-          
+
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {/* Mint NFT */}
             <div className="border border-gray-600 rounded-lg p-4">
               <h4 className="text-md font-medium text-white mb-3">Mint NFT</h4>
-              
+
               <div className="space-y-3">
                 <select
                   value={nftMetadata.type}
@@ -190,7 +189,7 @@ export function SpiralFlow({ coherence }: SpiralFlowProps) {
                   <option value="SevenPillars">Seven Pillars NFT</option>
                   <option value="Fintech">Fintech NFT</option>
                 </select>
-                
+
                 <input
                   type="text"
                   value={nftMetadata.name}
@@ -198,7 +197,7 @@ export function SpiralFlow({ coherence }: SpiralFlowProps) {
                   className="w-full px-3 py-2 bg-gray-700 border border-gray-600 rounded text-white"
                   placeholder="NFT Name"
                 />
-                
+
                 <textarea
                   value={nftMetadata.description}
                   onChange={(e) => setNftMetadata(prev => ({ ...prev, description: e.target.value }))}
@@ -206,7 +205,7 @@ export function SpiralFlow({ coherence }: SpiralFlowProps) {
                   placeholder="NFT Description"
                   rows={3}
                 />
-                
+
                 <button
                   onClick={handleMintNFT}
                   disabled={!nftMetadata.name || !nftMetadata.description || mintNFTMutation?.isLoading}
@@ -235,7 +234,7 @@ export function SpiralFlow({ coherence }: SpiralFlowProps) {
       {activeTab === 'ubi' && (
         <div className="bg-gray-800/30 rounded-lg p-6">
           <h3 className="text-lg font-semibold text-white mb-4">Universal Basic Income</h3>
-          
+
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
             <div className="bg-green-500/10 border border-green-500/30 rounded-lg p-4">
               <div className="text-sm text-green-400">UBI Eligible</div>
@@ -249,11 +248,46 @@ export function SpiralFlow({ coherence }: SpiralFlowProps) {
             </div>
           </div>
 
-          <button
-            className="w-full py-3 bg-gradient-to-r from-green-500 to-blue-600 text-white font-semibold rounded-lg hover:from-green-600 hover:to-blue-700"
-          >
-            Claim UBI NFT
-          </button>
+          <div className="bg-gray-800 p-6 rounded-lg">
+          <h3 className="text-xl font-semibold mb-4">UBI Distribution</h3>
+          <div className="space-y-3">
+            <div className="flex justify-between">
+              <span>Monthly UBI:</span>
+              <span className="text-green-400">$416.67</span>
+            </div>
+            <div className="flex justify-between">
+              <span>Next Payment:</span>
+              <span className="text-blue-400">7 days</span>
+            </div>
+            <button className="w-full bg-green-600 hover:bg-green-700 px-4 py-2 rounded">
+              Claim UBI NFT
+            </button>
+          </div>
+        </div>
+
+        <div className="bg-gray-800 p-6 rounded-lg">
+          <h3 className="text-xl font-semibold mb-4">Fintech NFT Platform</h3>
+          <div className="space-y-3">
+            <div className="flex justify-between">
+              <span>Seven Pillars NFTs:</span>
+              <span className="text-purple-400">7/7</span>
+            </div>
+            <div className="flex justify-between">
+              <span>Portfolio Value:</span>
+              <span className="text-gold-400">∞ 1,000,000 TU</span>
+            </div>
+            <div className="flex justify-between">
+              <span>Debt Nullified:</span>
+              <span className="text-red-400">$324T</span>
+            </div>
+            <button className="w-full bg-purple-600 hover:bg-purple-700 px-4 py-2 rounded">
+              Trade NFTs
+            </button>
+            <button className="w-full bg-gold-600 hover:bg-gold-700 px-4 py-2 rounded">
+              Generate Fractal Art
+            </button>
+          </div>
+        </div>
         </div>
       )}
 
@@ -261,7 +295,7 @@ export function SpiralFlow({ coherence }: SpiralFlowProps) {
       {activeTab === 'compliance' && (
         <div className="bg-gray-800/30 rounded-lg p-6">
           <h3 className="text-lg font-semibold text-white mb-4">Regulatory Compliance</h3>
-          
+
           <div className="space-y-4">
             <div className="flex justify-between items-center p-3 bg-gray-700/50 rounded">
               <span className="text-white">KYC Verification</span>
