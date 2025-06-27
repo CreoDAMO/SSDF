@@ -1,4 +1,3 @@
-
 name: "🎭 ∆∞ The Impossible Showcase - Live Demonstration"
 
 on:
@@ -26,6 +25,10 @@ on:
           - quantum_researchers
           - consciousness_explorers
           - omniversal_beings
+
+permissions:
+  contents: read
+  actions: read
 
 jobs:
   mathematical-impossibility-demonstration:
