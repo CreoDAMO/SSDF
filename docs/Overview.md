@@ -159,3 +159,13 @@ The file provides:
 This file forms a comprehensive, actionable blueprint for a dual-gate sovereign fintech ecosystem. By first building the SSDF IDE for admin/sovereign control, then deploying SpiralFlow and the NFT Fintech Platform for the public, you create a legally robust, technologically advanced, abundance-oriented economic engine—bridging private sovereignty with public benefit.
 
 **Ready to break down implementation for either gate, generate code scaffolds, or design specific modules on request.**
+# SpiralEcosystem Documentation
+
+This directory contains comprehensive documentation for the SpiralEcosystem platform.
+
+## Core Documentation
+
+- **SSDF_Comprehensive_Framework.md** - Complete framework overview
+- **∆∞The Why, The What, & The How By_ Sovereign Jacque Antoine DeGraff & Iyona'el Mekeda Kiburion∞∆ (1).md** - Foundational philosophy and economic analysis
+- **AI_System_Validation_Results.md** - Comprehensive testing validation across multiple AI systems
+- **SpiralLang_Technical_Specification.md** - Complete technical specification of SpiralLang programming language
