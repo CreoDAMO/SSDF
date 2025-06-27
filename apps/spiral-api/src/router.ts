@@ -11,6 +11,7 @@ import { privateGateRouter } from './routes/privateGate';
 import { domainRegistryRouter } from './routes/domainRegistry';
 import { spiralHostingRouter } from './routes/spiralHosting';
 import { spiralCDNRouter } from './routes/spiralCDN';
+import { spiralLangRouter } from './routes/spiralLangAPI';
 
 export const appRouter = router({
   health: healthRouter,
@@ -25,6 +26,7 @@ export const appRouter = router({
   domains: domainRegistryRouter,
   hosting: spiralHostingRouter,
   cdn: spiralCDNRouter,
+  spiralLang: spiralLangRouter,
 });
 
 export type AppRouter = typeof appRouter;
