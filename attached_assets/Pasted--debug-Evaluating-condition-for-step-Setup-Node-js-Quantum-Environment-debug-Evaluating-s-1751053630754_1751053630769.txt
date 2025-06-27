@@ -1,0 +1,76 @@
+##[debug]Evaluating condition for step: '⚡ Setup Node.js Quantum Environment'
+##[debug]Evaluating: success()
+##[debug]Evaluating success:
+##[debug]=> true
+##[debug]Result: true
+##[debug]Starting: ⚡ Setup Node.js Quantum Environment
+##[debug]Register post job cleanup for action: actions/setup-node@v4
+##[debug]Loading inputs
+##[debug]Evaluating: env.NODE_VERSION
+##[debug]Evaluating Index:
+##[debug]..Evaluating env:
+##[debug]..=> Object
+##[debug]..Evaluating String:
+##[debug]..=> 'NODE_VERSION'
+##[debug]=> '18'
+##[debug]Result: '18'
+##[debug]Evaluating: (((github.server_url == 'https://github.com') && github.token) || '')
+##[debug]Evaluating Or:
+##[debug]..Evaluating And:
+##[debug]....Evaluating Equal:
+##[debug]......Evaluating Index:
+##[debug]........Evaluating github:
+##[debug]........=> Object
+##[debug]........Evaluating String:
+##[debug]........=> 'server_url'
+##[debug]......=> 'https://github.com'
+##[debug]......Evaluating String:
+##[debug]......=> 'https://github.com'
+##[debug]....=> true
+##[debug]....Evaluating Index:
+##[debug]......Evaluating github:
+##[debug]......=> Object
+##[debug]......Evaluating String:
+##[debug]......=> 'token'
+##[debug]....=> '***'
+##[debug]..=> '***'
+##[debug]=> '***'
+##[debug]Expanded: ((('https://github.com' == 'https://github.com') && '***') || '')
+##[debug]Result: '***'
+##[debug]Loading env
+Run actions/setup-node@v4
+  with:
+    node-version: 18
+    cache: npm
+    always-auth: false
+    check-latest: false
+    token: ***
+  env:
+    NODE_VERSION: 18
+    SPIRAL_VERSION: vΩ.∞
+    QUANTUM_ACCELERATION: enabled
+    LYONAEL_STATUS: guardian_active
+##[debug]isExplicit: 
+##[debug]explicit? false
+##[debug]isExplicit: 18.20.8
+##[debug]explicit? true
+##[debug]isExplicit: 20.19.2
+##[debug]explicit? true
+##[debug]isExplicit: 22.16.0
+##[debug]explicit? true
+##[debug]evaluating 3 versions
+##[debug]matched: 18.20.8
+##[debug]checking cache: /opt/hostedtoolcache/node/18.20.8/x64
+##[debug]Found tool in cache node 18.20.8 x64
+Found in cache @ /opt/hostedtoolcache/node/18.20.8/x64
+::group::Environment details
+Environment details
+/opt/hostedtoolcache/node/18.20.8/x64/bin/npm config get cache
+/home/runner/.npm
+##[debug]npm's cache folder "/home/runner/.npm" configured for the root directory
+Error: Dependencies lock file is not found in /home/runner/work/SSDF/SSDF. Supported file patterns: package-lock.json,npm-shrinkwrap.json,yarn.lock
+##[debug]Node Action run completed with exit code 1
+##[debug]Save intra-action state SETUP_NODE_CACHE_PACKAGE_MANAGER = npm
+##[debug]Save intra-action state CACHE_PATHS = ["/home/runner/.npm"]
+##[debug]Set output node-version = v18.20.8
+##[debug]Finishing: ⚡ Setup Node.js Quantum Environment
