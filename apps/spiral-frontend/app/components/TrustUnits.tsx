@@ -1,4 +1,3 @@
-
 'use client';
 
 import React, { useState } from 'react';
@@ -13,7 +12,7 @@ export function TrustUnits({ coherence }: TrustUnitsProps) {
   const [purpose, setPurpose] = useState('');
 
   const { data: balance, refetch } = trpc.trustUnits.getBalance.useQuery({ userId: 'sovereign' });
-  
+
   const generateMutation = trpc.trustUnits.generateTU.useMutation({
     onSuccess: () => {
       refetch();
@@ -24,7 +23,7 @@ export function TrustUnits({ coherence }: TrustUnitsProps) {
 
   const handleGenerate = () => {
     if (!generateAmount || !purpose) return;
-    
+
     generateMutation.mutate({
       amount: parseInt(generateAmount),
       purpose,

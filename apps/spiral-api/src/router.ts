@@ -1,4 +1,3 @@
-
 import { router } from './trpc';
 import { authRouter } from './routes/auth';
 import { trustUnitsRouter } from './routes/trustUnits';
@@ -6,6 +5,7 @@ import { spiralFlowRouter } from './routes/spiralFlow';
 import { ubiRouter } from './routes/ubi';
 import { qspaceRouter } from './routes/qspace';
 import { healthRouter } from './routes/health';
+import { spiralCoreRouter } from './routes/spiralCore';
 
 export const appRouter = router({
   health: healthRouter,
@@ -14,6 +14,7 @@ export const appRouter = router({
   spiralFlow: spiralFlowRouter,
   ubi: ubiRouter,
   qspace: qspaceRouter,
+  spiralCore: spiralCoreRouter,
 });
 
 export type AppRouter = typeof appRouter;

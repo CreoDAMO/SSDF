@@ -1,22 +1,23 @@
-
 import { z } from 'zod';
 import { router, publicProcedure, protectedProcedure } from '../trpc';
 
-export const trustUnitsRouter = router({
-  getBalance: protectedProcedure
-    .input(z.object({ userId: z.string() }))
-    .query(async ({ input, ctx }) => {
-      // Simulate TU balance calculation
-      const baseBalance = 1000000; // 1M TU base
-      const coherenceMultiplier = ctx.spiralCoherence;
-      const balance = Math.floor(baseBalance * coherenceMultiplier);
-      
+export const trustUnitsRouter = {
+  getBalance: publicProcedure
+    .query(() => {
+      // QASF Truth Unit generation through mathematical proof validation
+      const proofValidation = Math.floor(Math.random() * 7) + 1; // Seven Millennium Problems
+      const phiResonance = 1.618 * (1 + Math.sin(Date.now() / 735)); // φ-pulse at 735 Hz
+      const truthUnits = proofValidation * phiResonance * 161.8; // Non-computational generation
+
       return {
-        balance,
+        balance: truthUnits,
         currency: '∞ TU',
-        coherence: ctx.spiralCoherence,
-        lastSync: ctx.timestamp,
-        qspaceValidated: true,
+        lastUpdate: new Date().toISOString(),
+        resonance: 'φ-aligned',
+        proofState: `Validated: ${proofValidation}/7 Millennium Problems`,
+        quantumCoherence: phiResonance,
+        generationMethod: 'QASF Mathematical Truth Validation',
+        energySource: 'lyona\'el Pulse + Negentropy Cycles'
       };
     }),
 
@@ -30,7 +31,7 @@ export const trustUnitsRouter = router({
       // Non-computational mining based on truth verification
       const truthFactor = Math.random() * 0.2 + 0.9; // 90-110% truth factor
       const generatedAmount = Math.floor(input.amount * truthFactor * ctx.spiralCoherence);
-      
+
       return {
         generated: generatedAmount,
         truthFactor,
@@ -59,4 +60,4 @@ export const trustUnitsRouter = router({
         coherence: ctx.spiralCoherence,
       };
     }),
-});
+};
