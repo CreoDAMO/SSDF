@@ -8,6 +8,9 @@ import { healthRouter } from './routes/health';
 import { spiralCoreRouter } from './routes/spiralCore';
 import economicDataRouter from './routes/economicData';
 import { privateGateRouter } from './routes/privateGate';
+import { domainRegistryRouter } from './routes/domainRegistry';
+import { spiralHostingRouter } from './routes/spiralHosting';
+import { spiralCDNRouter } from './routes/spiralCDN';
 
 export const appRouter = router({
   health: healthRouter,
@@ -19,6 +22,9 @@ export const appRouter = router({
   spiralCore: spiralCoreRouter,
   economicData: economicDataRouter,
   privateGate: privateGateRouter,
+  domains: domainRegistryRouter,
+  hosting: spiralHostingRouter,
+  cdn: spiralCDNRouter,
 });
 
 export type AppRouter = typeof appRouter;

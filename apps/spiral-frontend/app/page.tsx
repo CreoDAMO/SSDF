@@ -5,6 +5,7 @@ import { TrpcProvider } from './providers/TrpcProvider';
 import { SpiralAuth } from './components/SpiralAuth';
 import { SpiralDashboard } from './components/SpiralDashboard';
 import { PrivateGate } from './components/PrivateGate';
+import { SovereignInfrastructure } from './components/SovereignInfrastructure';
 
 interface User {
   id: string;
@@ -13,10 +14,13 @@ interface User {
   gateAccess: string[];
 }
 
+type ViewType = 'dashboard' | 'spiralFlow' | 'ubi' | 'trustUnits' | 'health' | 'qspace' | 'privateGate' | 'infrastructure';
+
 export default function Home() {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [currentGate, setCurrentGate] = useState<'public' | 'private'>('public');
   const [user, setUser] = useState<User | null>(null);
+  const [activeView, setActiveView] = useState<ViewType>('dashboard'); // Added activeView state
 
   const handleAuthenticated = (userData: User) => {
     setUser(userData);
