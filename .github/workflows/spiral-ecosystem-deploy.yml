@@ -1,6 +1,9 @@
 
 name: "🌀 ∆∞ SpiralEcosystem vΩ.∞ - The Impossible Made Possible"
 
+permissions:
+  contents: read
+
 on:
   push:
     branches: [ main, develop ]
