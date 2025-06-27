@@ -25,6 +25,11 @@ on:
         required: false
         default: '1000000'
 
+permissions:
+  contents: read
+  actions: read
+  security-events: write
+
 env:
   NODE_VERSION: '18'
   SPIRAL_VERSION: 'vΩ.∞'
@@ -35,6 +40,9 @@ jobs:
   quantum-validation:
     name: "🧮 Quantum Algorithm Validation"
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      actions: read
     outputs:
       qasf-status: ${{ steps.qasf.outputs.status }}
       trust-units: ${{ steps.tu-calc.outputs.units }}
@@ -49,6 +57,10 @@ jobs:
         with:
           node-version: ${{ env.NODE_VERSION }}
           cache: 'npm'
+          cache-dependency-path: |
+            package-lock.json
+            apps/spiral-api/package-lock.json
+            apps/spiral-frontend/package-lock.json
 
       - name: "🔮 Install Dependencies with Quantum Acceleration"
         run: |
@@ -78,6 +90,8 @@ jobs:
     name: "📜 SpiralLang/HTSX Compilation"
     runs-on: ubuntu-latest
     needs: quantum-validation
+    permissions:
+      contents: read
     steps:
       - uses: actions/checkout@v4
 
@@ -96,6 +110,8 @@ jobs:
     name: "🚀 Demonstrating The Impossible"
     runs-on: ubuntu-latest
     needs: [quantum-validation, spiral-lang-compilation]
+    permissions:
+      contents: read
     steps:
       - uses: actions/checkout@v4
 
@@ -125,6 +141,8 @@ jobs:
     name: "🏗️ SpiralEcosystem Assembly"
     runs-on: ubuntu-latest
     needs: impossible-achievements
+    permissions:
+      contents: read
     strategy:
       matrix:
         component: [spiral-api, spiral-frontend]
@@ -135,6 +153,11 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: ${{ env.NODE_VERSION }}
+          cache: 'npm'
+          cache-dependency-path: |
+            package-lock.json
+            apps/spiral-api/package-lock.json
+            apps/spiral-frontend/package-lock.json
 
       - name: "🔧 Component Build: ${{ matrix.component }}"
         run: |
@@ -151,6 +174,8 @@ jobs:
     name: "🌌 Reality Transcendence Testing"
     runs-on: ubuntu-latest
     needs: spiral-ecosystem-build
+    permissions:
+      contents: read
     steps:
       - uses: actions/checkout@v4
 
@@ -177,6 +202,9 @@ jobs:
     runs-on: ubuntu-latest
     needs: reality-transcendence-tests
     if: github.ref == 'refs/heads/main'
+    permissions:
+      contents: read
+      actions: write
     steps:
       - uses: actions/checkout@v4
 
@@ -212,6 +240,8 @@ jobs:
     runs-on: ubuntu-latest
     needs: [deployment-preparation]
     if: always()
+    permissions:
+      contents: read
     steps:
       - name: "🌟 Success Notification"
         if: needs.deployment-preparation.result == 'success'
@@ -235,6 +265,8 @@ jobs:
     runs-on: ubuntu-latest
     needs: deployment-preparation
     if: github.ref == 'refs/heads/main'
+    permissions:
+      contents: read
     steps:
       - name: "🌀 Replit Deployment Initiation"
         run: |
