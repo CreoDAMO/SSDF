@@ -73,7 +73,17 @@ export default function Home() {
             )}
           </>
         )}
-      </main>
+        <BusinessVerification />
+      <ImpossibleAchieved />
+    </main>
     </TrpcProvider>
+  );
+}
+
+function ImpossibleAchieved() {
+  return (
+    <div>
+      Impossible Achieved!
+    </div>
   );
 }

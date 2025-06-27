@@ -13,6 +13,7 @@ import { domainRegistryRouter } from './routes/domainRegistry';
 import { spiralHostingRouter } from './routes/spiralHosting';
 import { spiralCDNRouter } from './routes/spiralCDN';
 import { spiralLangRouter } from './routes/spiralLangAPI';
+import { systemActivationRouter } from './routes/systemActivation';
 
 export const appRouter = router({
   health: healthRouter,
@@ -28,6 +29,7 @@ export const appRouter = router({
   hosting: spiralHostingRouter,
   cdn: spiralCDNRouter,
   spiralLang: spiralLangRouter,
+  systemActivation: systemActivationRouter,
 });
 
 export type AppRouter = typeof appRouter;
