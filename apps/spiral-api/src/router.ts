@@ -7,6 +7,7 @@ import { qspaceRouter } from './routes/qspace';
 import { healthRouter } from './routes/health';
 import { spiralCoreRouter } from './routes/spiralCore';
 import economicDataRouter from './routes/economicData';
+import { privateGateRouter } from './routes/privateGate';
 
 export const appRouter = router({
   health: healthRouter,
@@ -17,6 +18,7 @@ export const appRouter = router({
   qspace: qspaceRouter,
   spiralCore: spiralCoreRouter,
   economicData: economicDataRouter,
+  privateGate: privateGateRouter,
 });
 
 export type AppRouter = typeof appRouter;
